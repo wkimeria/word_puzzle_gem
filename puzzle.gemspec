@@ -1,13 +1,15 @@
-Gem::Specification.new do |s|
-  s.name        = 'puzzle'
-  s.version     = '0.0.0'
-  s.date        = '2014-06-08'
-  s.summary     = "Hola!"
-  s.description = "A gem to solve sequential word puzzles (details to follow)"
-  s.authors     = ["Will Kimeria"]
-  s.email       = 'wkimeria@gmail.com'
-  s.files       = ["lib/puzzle.rb"]
-  s.homepage    =
+Gem::Specification.new do |gem|
+  gem.name        = 'puzzle'
+  gem.version     = '0.0.0'
+  gem.date        = '2014-06-08'
+  gem.summary     = "Hola!"
+  gem.description = "A gem to solve sequential word puzzles (details to follow)"
+  gem.authors     = ["Will Kimeria"]
+  gem.email       = 'wkimeria@gmail.com'
+  gem.files       = ["lib/puzzle.rb"]
+  gem.homepage    =
       'https://github.com/wkimeria/word_puzzle_gem'
-  s.license       = 'MIT'
+  gem.license       = 'MIT'
+
+  gem.add_development_dependency('rspec')
 end
