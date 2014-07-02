@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe Puzzle do
   let(:puzzle) {
-    Puzzle.new(nil)
+    Puzzle.new(["hell","mell","gell","doe","hello"])
   }
   context 'incrementing letter' do
     it 'increment' do
@@ -30,6 +30,21 @@ describe Puzzle do
       expect(puzzle.increment_letter('x')).to eq 'y'
       expect(puzzle.increment_letter('y')).to eq 'z'
       expect(puzzle.increment_letter('z')).to eq 'a'
+    end
+  end
+
+  context 'generate variation' do
+    it 'raises on nil word' do
+      expect { puzzle.generate_variations(nil, 0) }.to raise_error(ArgumentError)
+    end
+    it 'raises on blank word' do
+      expect { puzzle.generate_variations('', 0) }.to raise_error(ArgumentError)
+    end
+    it 'raises on invalid index' do
+      expect { puzzle.generate_variations('hello', 5) }.to raise_error(ArgumentError)
+    end
+    it 'returns valid words' do
+      expect(puzzle.generate_variations('hell', 0)).to eq ['mell', 'gell']
     end
   end
 end
