@@ -18,6 +18,17 @@ class Puzzle
 
   end
 
+  # For a given word, for each letter, find all subsequent words that are valid
+  # and that differ by only one letter.
+  def generate_all_variations(word)
+    raise ArgumentError, 'Word cannot be nil or empty' if word.nil? || word.empty?
+    words = []
+    word.chars.each_with_index do |w, idx|
+      words.concat(generate_variations(word, idx))
+    end
+    words
+  end
+
   # For a given word, generate variations of the word with the character at the given position
   # incremented. Only keep words that are valid according to our dictionary.
   # For exampe, given ham and 0, the words would be aam,bam,cam, dam but only those that are valid
